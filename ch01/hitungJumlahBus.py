@@ -1,7 +1,8 @@
 '''
 Soal:
 
-Sebuah sekolah sedang merencanakan acara jalan-jalan. Mereka perlu menyewa bus untuk mengangkut para siswa dan guru. Bantulah sekolah ini untuk menentukan jumlah bus yang perlu disewa berikut total biaya sewanya.
+Sebuah sekolah sedang merencanakan acara jalan-jalan. Mereka perlu menyewa bus untuk mengangkut para siswa dan guru. 
+Bantulah sekolah ini untuk menentukan jumlah bus yang perlu disewa berikut total biaya sewanya.
 Input program: jumlah siswa dan jumlah guru
 Output: Cetak jumlah bus yang perlu disewa dan total biaya sewanya.
 Constraint: 
