@@ -9,7 +9,8 @@ Constraint:
 Satu bus bisa memuat 30 orang penumpang
 Setiap siswa mendapatkan satu tempat duduk
 Setiap guru mendapatkan dua tempat duduk, karena akan membawa perlengkapan acara
-Untuk konsumsi dibutuhkan tambahan tempat duduk, dimana satu tempat duduk maksimal bisa digunakan untuk meletakkan kotak konsumsi untuk 10 orang peserta
+Untuk konsumsi dibutuhkan tambahan tempat duduk, dimana satu tempat duduk maksimal bisa digunakan untuk meletakkan 
+kotak konsumsi untuk 10 orang peserta
 Harga sewa harian per bus adalah 2 juta rupiah
 
 '''
