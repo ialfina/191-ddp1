@@ -37,6 +37,7 @@ if year % 4 == 0:
 
 # else:   # tidak perlu karena nilai default "False"
 	# print("{} BUKAN tahun kabisat.".format(year))
+	# isKabisat = False
 
 if isKabisat:
 	print("{} ADALAH tahun kabisat.".format(year))
