@@ -20,12 +20,12 @@ page = '''
 
 @app.route('/h1/<user>')
 def hello_name_string(user):
-   return render_template_string(page, name = user)
+    return render_template_string(page, name = user)
 
 
 @app.route('/h2/<user>')
 def hello_name_file(user):
-   return render_template('hello.html', name = user)
+    return render_template('hello.html', name = user)
 
 if __name__ == '__main__': 
-   app.run(debug = True)
+    app.run(debug = True)
