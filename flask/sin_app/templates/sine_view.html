@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+	<title > Sine Calculation</title >
+</head>
+<body>
+	<h1> Calculate the Sine </h1>
+	<form action="" method=POST>
+		Hello Calculation Fans! <br>
+		Enter a floating point value
+		{{ template_form.float_field }}
+		<br>
+		{% if result != None %}
+			{{ result}}
+		{% endif %}
+		<br>
+		<input type=submit value=Calculate>
+	</form>
+</body>
+</html>
