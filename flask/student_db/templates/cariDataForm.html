@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+	<title>DMBS Mahasiswa Sederhana</title>
+</head>
+
+<body>
+	<h1>Daftar Mahasiswa Fasilkom, Universitas Indonesia</h1>
+	<h3>Kelas Dasar-dasar Pemrograman 1 (DDP 1)</h3>
+	<h3>Semester Gasal TA 2019/2020</h3>
+	<hr>
+	<table border=1 bgcolor= #fef5e7>
+		<tr>
+		<td><a href=importData>Import Data</a></td>
+		<td><a href=cariData>Cari Data</a></td>
+		</tr>
+	</table>
+	<hr>
+	<h2>Cari Data Mahasiswa</h2>
+
+	<form method="POST", action="">
+		<p>Masukkan nama mahasiswa: (tidak harus nama lengkap)</p>
+		<input type="text" name=nama required>
+		<input type=submit value="Cari Data">
+	</form>
+
+	{% if result is defined and result|length != 0 %}
+		<h4>Ditemukan {{result|length}} data mahasiswa dengan kata kunci <i>{{ nama }} </i></h4>
+	<table border=1>
+        	<tr>
+                <th>NPM</th>
+                <th>Nama</th>
+                <th>Kelas</th>
+        	</tr>
+        	{% for v in result %}
+            <tr>
+                <td align=center> {{ v.npm }} </td>
+                <td align=left> {{ v.nama }} </td>
+                <td align=center> {{ v.kelas }} </td>
+            </tr>
+        	{% endfor %}
+
+     	</table>
+	{% endif %}
+
+	{% if result is defined and result|length == 0 %}
+	<h4>Tidak ditemukan data mahasiswa dengan kata kunci <i>{{ nama }} </i></h4>
+	{% endif %}
+
+
+	{% if result is undefined and msg is defined %}
+	<h4> {{ msg }} </h4>
+	{% endif %}
+
+
+</body>
+</html>
