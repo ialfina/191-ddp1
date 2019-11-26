@@ -39,6 +39,7 @@ def importData():
 
 	elif request.method == "POST":
 		f = request.files['file']
+		global databasefilename
 		databasefilename=f.filename
 		budayaData.importFromCSV(f.filename)
 		n_data = len(budayaData.koleksi)
