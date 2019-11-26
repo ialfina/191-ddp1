@@ -18,7 +18,7 @@
 	<hr>
 	<h2>Cari Data Mahasiswa</h2>
 
-	<form method="POST", action="">
+	<form method="GET", action="">
 		<p>Masukkan nama mahasiswa: (tidak harus nama lengkap)</p>
 		<input type="text" name=nama required>
 		<input type=submit value="Cari Data">
@@ -46,12 +46,6 @@
 	{% if result is defined and result|length == 0 %}
 	<h4>Tidak ditemukan data mahasiswa dengan kata kunci <i>{{ nama }} </i></h4>
 	{% endif %}
-
-
-	{% if result is undefined and msg is defined %}
-	<h4> {{ msg }} </h4>
-	{% endif %}
-
 
 </body>
 </html>
