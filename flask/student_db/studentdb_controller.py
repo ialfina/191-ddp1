@@ -11,7 +11,7 @@ Last update: 23 November 2019
 
 '''
 
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template, request
 from studentdb_model import Mahasiswa, MahasiswaDB
 app = Flask(__name__)
 app.secret_key ="ika"
@@ -41,13 +41,10 @@ def importData():
 		global databaseName
 		databaseName = f.filename
 		dataMhs = MahasiswaDB()
-		n_imported = dataMhs.importFromCSV(f.filename)
-		if n_imported > 0:
-			return render_template("importDataForm.html", result=n_imported, fname=f.filename)
-		else:
-			pesan = "Tidak ada yang diimport"
-			return render_template("importDataForm.html", msg=pesan, fname=f.filename)
-
+		dataMhs.importFromCSV(f.filename)
+		n_imported = len(dataMhs.daftar)
+		return render_template("importDataForm.html", result=n_imported, fname=f.filename)
+		
 #####################################################################################
 # Search Student Data by a keyword of name
 #####################################################################################

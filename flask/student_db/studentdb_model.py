@@ -8,7 +8,7 @@ class Mahasiswa(object):
 		self.kelas = kelas
 
 	def __str__(self):
-		strMhs = "NPM: " + self.npm + ", Nama: " + self.nama + ", Kelas: " + self.kelas
+		strMhs = self.npm + ", " + self.nama + ", " + self.kelas
 
 		return strMhs
 
@@ -23,14 +23,12 @@ class MahasiswaDB(object):
 		with open(fileName) as csv_file:
 			csv_reader = csv.reader(csv_file, delimiter=',')
 			for line in csv_reader:
-				aMhs = Mahasiswa(line[0], line[1], line[2])
-				self.daftar[line[0]] = aMhs
-
-		return len(self.daftar)
-
+				if len(line) == 3 and line[0] != "":
+					aMhs = Mahasiswa(line[0], line[1], line[2])
+					self.daftar[line[0]] = aMhs
 
 	def cariByNama(self, aName):
-		
+
 		result = []
 		for v in self.daftar.values():
 			if aName.lower() in v.nama.lower():
@@ -44,9 +42,11 @@ class MahasiswaDB(object):
 def main():
 
 	ddp1 = MahasiswaDB()
-	n_data = ddp1.importFromCSV("ddp1_daftar_mhs.csv")
-	if n_data>0:
-		print("Sudah tersalin {} data".format(n_data))
+	ddp1.importFromCSV("ddp1_daftar_mhs.csv")
+	if len(ddp1.daftar) > 0:
+		print("Sudah tersalin {} data".format(len(ddp1.daftar)))
+	else:
+		print("Database kosong")
 
 	result = ddp1.cariByNama("san")
 
