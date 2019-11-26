@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+<h1><center>BudayaKB Lite v2.0</center></h1>
+<h3><center>Sistem Manajemen Knowledge Base Budaya Indonesia</h3></center>
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/imporBudaya">Impor Budaya</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Sunting Budaya</a>
+    <div class="dropdown-content">
+      <a href="/tambahBudaya">Tambah Budaya</a>
+      <a href="/ubahBudaya">Ubah Budaya</a>
+      <a href="/hapusBudaya">Hapus Budaya</a>
+    </div>
+  </li>
+    <li><a href="/cariBudaya">Cari Budaya</a></li>
+      <li><a href="/statsBudaya">Statistik Budaya</a></li>
+</ul>
+
+</body>
+</html>
