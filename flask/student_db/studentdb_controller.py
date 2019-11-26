@@ -54,23 +54,26 @@ def importData():
 
 @app.route('/cariData', methods=['GET', 'POST'])
 def cariData():
-	if request.method == "GET":
-		return render_template('cariDataForm.html')
- 
-	elif request.method == "POST":	
-		queryNama = request.form['nama']
-		dataMhs = MahasiswaDB()
-		n_imported = dataMhs.importFromCSV(databaseName)
-		if n_imported > 0:
+	if request.method == "GET":	
+		if len(request.args) == 0:
+				return render_template('cariDataForm.html')
+		else:
+			queryNama = request.args['nama']
+			dataMhs = MahasiswaDB()
+			dataMhs.importFromCSV(databaseName)
 			resultCari = dataMhs.cariByNama(queryNama)
 			return render_template("cariDataForm.html", result=resultCari, nama=queryNama)
-		else:
-			pesan = "Database kosong"
-			return render_template("cariDataForm.html", msg=pesan)
-
+			
+	elif request.method == "POST":
+		queryNama = request.form['nama']
+		dataMhs = MahasiswaDB()
+		dataMhs.importFromCSV(databaseName)
+		resultCari = dataMhs.cariByNama(queryNama)
+		return render_template("cariDataForm.html", result=resultCari, nama=queryNama)
 
 #####################################################################################
 # Run the App
 #####################################################################################
 if __name__ == '__main__':
    app.run(debug = True)
+   
