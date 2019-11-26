@@ -25,27 +25,31 @@
 	</form>
 
 	{% if result is defined and result|length != 0 %}
-		<h4>Ditemukan {{result|length}} data mahasiswa dengan kata kunci <i>{{ nama }} </i></h4>
+	<h4>Ditemukan {{result|length}} data mahasiswa dengan kata kunci <i>{{ nama }} </i>. Terurut berdasarkan nama</h4>
+	
 	<table border=1>
-        	<tr>
-                <th>NPM</th>
-                <th>Nama</th>
-                <th>Kelas</th>
-        	</tr>
-        	{% for v in result %}
-            <tr>
-                <td align=center> {{ v.npm }} </td>
-                <td align=left> {{ v.nama }} </td>
-                <td align=center> {{ v.kelas }} </td>
-            </tr>
-        	{% endfor %}
+        <tr>
+        	<th>No</th>
+            <th>NPM</th>
+            <th>Nama</th>
+            <th>Kelas</th>
+        </tr>
+        
+        {% for v in result %}
+        <tr>
+        	<td align=center> {{ loop.index }} </td>
+           	<td align=center> {{ v.npm }} </td>
+            <td align=left> {{ v.nama }} </td>
+         	<td align=center> {{ v.kelas }} </td>
+        </tr>
+        {% endfor %}
 
-     	</table>
-	{% endif %}
+     </table>
+{% endif %}
 
-	{% if result is defined and result|length == 0 %}
-	<h4>Tidak ditemukan data mahasiswa dengan kata kunci <i>{{ nama }} </i></h4>
-	{% endif %}
+{% if result is defined and result|length == 0 %}
+<h4>Tidak ditemukan data mahasiswa dengan kata kunci <i>{{ nama }} </i></h4>
+{% endif %}
 
 </body>
 </html>
