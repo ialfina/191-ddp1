@@ -51,18 +51,17 @@ def importData():
 
 @app.route('/cariData', methods=['GET', 'POST'])
 def cariData():
+	queryNama = ""
 	if request.method == "GET":	
 		if len(request.args) == 0:
 				return render_template('cariDataForm.html')
 		else:
 			queryNama = request.args['nama']
-			dataMhs = MahasiswaDB()
-			dataMhs.importFromCSV(databaseName)
-			resultCari = dataMhs.cariByNama(queryNama)
-			return render_template("cariDataForm.html", result=resultCari, nama=queryNama)
-			
 	elif request.method == "POST":
-		queryNama = request.form['nama']
+				queryNama = request.form['nama']
+
+	# process query
+	if queryNama != "":
 		dataMhs = MahasiswaDB()
 		dataMhs.importFromCSV(databaseName)
 		resultCari = dataMhs.cariByNama(queryNama)

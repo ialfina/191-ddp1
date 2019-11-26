@@ -1,21 +1,30 @@
+"""
+
+The Model component of Student App
+
+Author: Ika Alfina (ika.alfina@cs.ui.ac.id)
+Last update: 26 November 2019
+
+"""
+
 import csv
 
 class Mahasiswa(object):
 
 	def __init__(self, npm="", nama="", kelas="B"):
-		self.npm = npm
+		self.npm = npm # unique
 		self.nama = nama
 		self.kelas = kelas
 
 	def __str__(self):
 		strMhs = self.npm + ", " + self.nama + ", " + self.kelas
-
 		return strMhs
 
 
 class MahasiswaDB(object):
 
 	def __init__(self, daftar = {}):
+
 		self.daftar = daftar
 
 	def importFromCSV(self, fileName):
