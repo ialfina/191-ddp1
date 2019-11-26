@@ -28,8 +28,8 @@
 	<h3>Sebanyak {% print result %} data mahasiswa telah terimpor dari file <i> {{ fname }} </i></h3>
 	{% endif %}
 
-	{% if result is undefined and msg is defined %}
-	<h3> {{ msg }} </h3>
+	{% if result is defined and result == 0  %}
+	<h3>Tidak ada data di dalam file <i> {{ fname }} </i></h3>
 	{% endif %}
 </body>
 </html>
