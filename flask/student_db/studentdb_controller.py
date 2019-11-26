@@ -7,7 +7,7 @@ Contains the implementation of 2 features:
 - search data by student name
 
 Author: Ika Alfina (ika.alfina@cs.ui.ac.id)
-Last update: 23 November 2019
+Last update: 26 November 2019
 
 '''
 
@@ -58,13 +58,14 @@ def cariData():
 		else:
 			queryNama = request.args['nama']
 	elif request.method == "POST":
-				queryNama = request.form['nama']
+		queryNama = request.form['nama']
 
 	# process query
 	if queryNama != "":
 		dataMhs = MahasiswaDB()
 		dataMhs.importFromCSV(databaseName)
 		resultCari = dataMhs.cariByNama(queryNama)
+		resultCari.sort()
 		return render_template("cariDataForm.html", result=resultCari, nama=queryNama)
 
 #####################################################################################

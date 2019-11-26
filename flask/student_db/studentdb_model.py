@@ -20,6 +20,12 @@ class Mahasiswa(object):
 		strMhs = self.npm + ", " + self.nama + ", " + self.kelas
 		return strMhs
 
+	def __lt__(self, anotherMhs):
+		return self.nama < anotherMhs.nama
+
+	def __eq__(self, anotherMhs):
+		return self.nama == anotherMhs.nama
+
 
 class MahasiswaDB(object):
 
@@ -58,6 +64,7 @@ def main():
 		print("Database kosong")
 
 	result = ddp1.cariByNama("san")
+	result.sort()
 
 	print(len(result))
 
