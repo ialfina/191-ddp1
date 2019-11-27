@@ -17,6 +17,8 @@ app = Flask(__name__)
 app.secret_key ="ika"
 
 databaseName = "ddp1_daftar_mhs.csv"
+dataMhs = MahasiswaDB()
+
 
 #####################################################################################
 # Index
@@ -62,8 +64,8 @@ def cariData():
 
 	# process query
 	if queryNama != "":
-		dataMhs = MahasiswaDB()
-		dataMhs.importFromCSV(databaseName)
+		# dataMhs = MahasiswaDB()
+		# dataMhs.importFromCSV(databaseName)
 		resultCari = dataMhs.cariByNama(queryNama)
 		resultCari.sort()
 		return render_template("cariDataForm.html", result=resultCari, nama=queryNama)
